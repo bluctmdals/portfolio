@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- 
+    Brighton Lucas
+    Section 3
+    Homework 2
+!-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="BMI Calculator" content="A series of prompts ask slightly personal questions related to the user's height and weight to determine BMI." />
+        <title>BMI Calculator</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/s"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../css/styles.css" rel="stylesheet"/>   
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: gray; opacity: .75; ">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand btn prev-nav" style="font-size: 8px;" href="../programs.html">Return</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../design.html">Graphic Design</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../programs.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../management.html">Management</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <script>
+        //set var for ht inches, ht feet, wt, BMI
+        //Prompt the user to enter the height in feet and then inches and the current weight in pounds.
+        //Prompt for feet, assign variable, floor it, transfer to integer, give ie
+        var iFeet;
+        var iInches;
+        var fWeight;
+        var fBMI;
+        alert("Hi! today we'll be calculating your BMI using your height and weight!");
+        iFeet = parseInt(prompt("What is your height in feet? e.g. If you're 5 feet 9 inches, just put '5'."));
+        
+
+        //multiply feet var by 12
+        var iFeet = iFeet * 12;
+
+        //prompt for inches, transfer to integer, give ie
+        iInches = parseInt(prompt("How many inches follow your 'feet' height? e.g. If you're 5 feet 9 inches, just put '9'."));
+        //Make sure your prompts are readable and inform the user of the type of data to enter or you will lose points.
+
+        //add inches from feet and inches entered
+        iInches = iInches + iFeet;
+
+        //get weight
+        fWeight = parseFloat(prompt("How much do you weigh? Please enter units in terms of pounds."));
+        //Calculate the BMI using the input. (Calculation: [weight (lb) / height (in) / height (in)] x 703)
+        fBMI = (fWeight / iInches / iInches) * 703;
+        
+        //BMI Categories: (Underweight  < 18.5 Normal weight  18.5 <= x < 25 Overweight  25 <= x < 30 Obesity  BMI of 30 or greater)
+        //Then display if the result is Underweight, Normal weight, Overweight, or Obesity.
+        //Then display tips for better health
+        //Maintain a Healthy Weight, Increase Physical Activity, Eat a Heart-Healthy Diet, Know and Control Your Heart Health Numbers
+
+        if (fBMI < 18.5)
+        { 
+            alert("You are underweight.")
+            alert("Tips: Consider fixing that, skinny.");
+        }
+        else if (fBMI <= 25)
+        {
+            alert("Hey! You have a normal weight. Good job! Go celebrate with an ice cream!")
+            alert("But make sure to maintain your healthy weight!")
+            alert("Weight... Did you lie about your weight to get this feedback?");
+        }
+        else if (fBMI < 30)
+        {
+            alert("You're overweight.") 
+            alert("Tips: Maybe increase physical activity, eat a heart-healthy diet, stuff like that.");
+        }
+        else 
+        {
+            alert("You're obese. No doubt about that.")
+            alert("Tips: Maybe increase physical activity, eat a heart-healthy diet, and you should really know and control your heart health numbers.");
+        }
+     
+        
+        
+    </script>
+<!-- Contact-->
+<section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">  
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Email</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50"><a href="#!">brightonlucas1@gmail.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Phone</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">+1 (936) 230-7777</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Address</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">356 E 400 N<br>Provo, UT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://www.linkedin.com/in/brightonlucas/"><i class="fab fa-linkedin"></i></a>
+            <a class="mx-2" href="https://www.instagram.com/brighton_early/"><i class="fab fa-instagram"></i></a>
+            <a class="mx-2" href="https://github.com/bluctmdals"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Brighton Lucas 2023</div></footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

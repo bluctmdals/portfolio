@@ -1,0 +1,205 @@
+<!--Brighton Lucas
+    Section 003-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="Welcome to March Madness" content="Program to run score against inputted teams and the season record."/>
+        <title>Welcome to March Madness</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/s"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../css/styles.css" rel="stylesheet"/>   
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: gray; opacity: .75; ">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand btn prev-nav" style="font-size: 8px;" href="../programs.html">Return</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../design.html">Graphic Design</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../programs.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../management.html">Management</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <script>
+            function playGame()
+            {
+                var numGames = parseInt(document.getElementById("games").value);
+                var myTeam = document.getElementById("teamName").value;
+                var output = "";
+                // Your team that was entered in the text box will begin at home. 
+                let bHome = true;
+                let iWins = 0;
+
+                
+                for (let iCnt = 0; iCnt < numGames; iCnt++) 
+                {   
+                    let myScore = 0;
+                    let oppScore = 0;
+                    let OT = 0;
+                    let gameResult;
+                    let sOT;
+// Your team that was entered in the text box will begin at home. 
+                    if (bHome == true) 
+                    {
+                        // You will still generate random numbers for each of the teams from 0 to 100. 
+                        myScore = Math.floor(Math.random() * 101);
+                        oppScore = Math.floor(Math.random() * 101);
+                        if (myScore == oppScore) 
+                        {   
+                            // If there is a tie, you will play an overtime that generates a new random number score up to 15 points. 
+                            // This score will be added to the previous score. 
+                            while (myScore = oppScore)
+                            {
+                                // If there is another tie, do another overtime period generating 2 new random numbers and adding it to the total score. 
+                                // Keep doing this until there is no tie. 
+                            myScore += (Math.floor(Math.random() * 16));
+                            oppScore += (Math.floor(Math.random() * 16));
+                            }
+                            OT++;
+                        }
+                        else 
+                        {
+                            // However, whoever is the home team will get a 5 point bonus on their score within the loop. 
+                            // Do NOT add the extra bonus of 5 points for home teams during the overtime portion. 
+                            myScore += 5;
+                        }
+                        // Then, your team will switch between being at home and visiting with each iteration of the loop.
+                        bHome = false;
+                    }
+                    
+                    else
+                    {
+                        // You will still generate random numbers for each of the teams from 0 to 100. 
+                        myScore = Math.floor(Math.random() * 101);
+                        oppScore = Math.floor(Math.random() * 101);
+                        if (myScore == oppScore) 
+                        {   
+                            // If there is a tie, you will play an overtime that generates a new random number score up to 15 points. 
+                            // This score will be added to the previous score. 
+                            while (myScore = oppScore)
+                            {
+                                // If there is another tie, do another overtime period generating 2 new random numbers and adding it to the total score. 
+                                // Keep doing this until there is no tie. 
+                            myScore += (Math.floor(Math.random() * 16));
+                            oppScore += (Math.floor(Math.random() * 16));
+                            }
+                            OT++;
+                        }
+                        else 
+                        {
+                            // However, whoever is the home team will get a 5 point bonus on their score within the loop.
+                            // Do NOT add the extra bonus of 5 points for home teams during the overtime portion. 
+                            oppScore += 5;
+                        }
+                        // Then, your team will switch between being at home and visiting with each iteration of the loop.
+                        bHome = true;
+                    }
+                    if (myScore > oppScore)
+                    {
+                        gameResult = " and Wins";
+                        iWins += 1
+                    }
+                    else 
+                    {
+                        gameResult = " and Loses";
+                    }
+                    if (OT > 0)
+                    {
+                        sOT = " with " + OT + " OT ";
+                    }
+                    else
+                    {
+                        //  – don’t display if there wasn’t one, and whether your team won or lost. 
+                        sOT = "";
+                    }
+                    
+                // You will show your team name, team score, your opponent’s score, the number of overtime period(s)
+                output = output + myTeam + ": " + myScore + " - " + oppScore + sOT + gameResult + "<br>";
+                }
+                let winPercentage = Number((iWins/numGames) * 100).toFixed(1);
+                //Build the data to display and assign it to the output variable
+                //For example: output = output + myTeam + " played " + numGames + " games<br>Their record is 25-0";
+                output = output + myTeam + " played " + numGames + " games.<br>Their record is " + iWins + " - " + (numGames-iWins) + " with a winning pct of " + winPercentage;
+
+                //NOTE: You have to use the <br> to go to a new line instead of \n because you are writing HTML
+
+                //Assign the contents of the variable output to the html tag outputGames
+                document.getElementById("outputGames").innerHTML = output;
+            }
+        </script>
+    </head>
+
+    <body>
+        <section><br><br><br><br>
+            Enter your team name: <input type="text" name="teamName" id="teamName"><br><br>
+            Number of games: <input type="text" name="games" id="games"><br><br>
+            <button type="button" onclick="playGame()">Start Season</button><br>
+            <p id="outputGames"></p>
+        </section>
+<!-- Contact-->
+<section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">  
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Email</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50"><a href="#!">brightonlucas1@gmail.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Phone</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">+1 (936) 230-7777</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Address</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">356 E 400 N<br>Provo, UT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://www.linkedin.com/in/brightonlucas/"><i class="fab fa-linkedin"></i></a>
+            <a class="mx-2" href="https://www.instagram.com/brighton_early/"><i class="fab fa-instagram"></i></a>
+            <a class="mx-2" href="https://github.com/bluctmdals"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Brighton Lucas 2023</div></footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

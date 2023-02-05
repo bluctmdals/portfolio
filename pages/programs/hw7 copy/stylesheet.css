@@ -1,0 +1,60 @@
+/* these are the main approved styles for the site*/
+
+body {
+    font-family: 'Courier New', Courier, monospace, Helvetica, sans-serif;
+    font-size: 15px;
+    color:darkgoldenrod;
+    background-color: blanchedalmond;
+}
+
+li {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+a {
+    color: lightskyblue;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+a:visited {
+    color: blue;
+}
+
+.resumeListHeader {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.underline {text-decoration: underline;}
+.bold {font-weight: bold;}
+.justify{text-align: justify;}
+.homebg {background-image: url('images/ocean.png');
+background-position: bottom right;
+background-repeat: repeat;}
+/*these styles were for the box model*/
+.box1 {
+    border-width: 1px;
+    border-style: solid;
+    border-color: coral;
+    border-bottom: dotted 2px red;
+}
+
+.box2 {
+    padding: 4px;
+}
+
+.box3 {
+    margin: 5px
+}
+
+.box4 {
+    padding-left: 10px;
+    margin: 100px;
+    border-right: solid 5px blue;
+}

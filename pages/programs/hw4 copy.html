@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="Women's NCAA Soccer Cup" content="You'll be asked your team name, and the number of teams you will beat this year, but watch out! The number you input is the iterations you'll input apposing team names! Assigns a random number, calculates win/loss and predicts if you'll make it to the finals and win!" />
+        <title>Women's NCAA Soccer Cup</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/s"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../css/styles.css" rel="stylesheet"/>   
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: gray; opacity: .75; ">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand btn prev-nav" style="font-size: 8px;" href="../programs.html">Return</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../design.html">Graphic Design</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../programs.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../management.html">Management</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<body>
+    <script>
+        //Brighton Lucas
+        //Section 3 Is303
+
+       //define variables
+
+        alert("Hi! You like sports dontcha?!"); //alert to explain function
+        alert("Yeah you do! If you're here either it's because you LOVE sports or because you're a TA forced to grade too many of these...");
+
+        let sMyTeam = prompt("Enter your favorite team's name below!"); //prompt for team name
+        
+        let iTeams = parseInt(prompt("How many teams are you gonna beat this year?")); //prompt for number of teams
+        
+        var iMyWins = 0;
+        for (let i = 0; i < iTeams; i++) //Loop for number of teams
+        { 
+            
+            let sOppTeam = prompt("What is the name of the next team you're gonna beat?") //prompt opp team name
+            
+            //dowhile - random myscore random oppscore while my score == oppscore            
+
+            do {
+                iMyScore = Math.floor(Math.random() * 11);
+                iOppScore = Math.floor(Math.random() * 11);
+            }
+            while (iMyScore == iOppScore);
+
+            //alert("my iMyScore =" + iMyScore + "\n" + "my iOppScore = " + iOppScore);
+
+
+            
+            //if win increase win counter
+
+            if (iMyScore > iOppScore) 
+            {
+                iMyWins++;
+            }
+
+        }
+        //define final variables
+        let sPlayoffs;
+        let fWinPercen = (iMyWins/iTeams);
+        if 
+        (fWinPercen >= .75) //outcome if Team wins 75%+
+            {
+                sPlayoffs = "NCAA Women's Soccer Tournament"
+            }
+        else if //outcome if Team sucks
+        (fWinPercen < .50) 
+            {
+                sPLayoffs = "See you next year"
+            }
+        else //outcome if Team wins 50%-75%
+        {
+            sPlayoffs = "Alternate Candidate for Covid"
+        }
+        //Print team name record IF statement response
+        alert("How'd you do? Let's see!");
+        alert(sMyTeam + " " + iMyWins + " - " + (iTeams - iMyWins) + "\n" + sPlayoffs);
+
+    </script>
+<!-- Contact-->
+<section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">  
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Email</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50"><a href="#!">brightonlucas1@gmail.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Phone</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">+1 (936) 230-7777</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Address</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">356 E 400 N<br>Provo, UT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://www.linkedin.com/in/brightonlucas/"><i class="fab fa-linkedin"></i></a>
+            <a class="mx-2" href="https://www.instagram.com/brighton_early/"><i class="fab fa-instagram"></i></a>
+            <a class="mx-2" href="https://github.com/bluctmdals"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Brighton Lucas 2023</div></footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

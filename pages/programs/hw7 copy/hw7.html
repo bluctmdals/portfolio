@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--Brighton Lucas
+Section3
+Create Yahtzee Simulation-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="Yahtzee Time!" content="Ever wanted to play Yahtzee by yourself? Now you can! This program works with the DOM, rendering images after running a function, all displayed on a happy butter yellow background!" />
+        <title>Yahtzee Time!</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/img/sun.png"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../../css/styles.css" rel="stylesheet"/>   
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+        <link href="stylesheet.css" rel="stylesheet">
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: gray; opacity: .75; ">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand btn prev-nav" style="font-size: 8px;" href="../../programs.html">Return</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../../design.html">Graphic Design</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../programs.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../management.html">Management</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+    <form>
+        <br><br><br><br><br><br>
+        <!--create label-->
+        <label>What number do you want to Yahtzee?</label>
+        <br>
+        <!--autofocus and give input-->
+        <input type="text" id="myInput" value="" autofocus>
+        <br>
+        <br>
+        <!--run function on click of button-->
+        <button type="button" onclick="rollTheDie()">Click Me</button>
+        <button type="button" onclick=location.reload()>Reset</button>
+        <br>
+        <!--give images once function is run but hide before-->
+        <!--p tag for text-->
+        <!--alternate images and text-->
+        <br>
+
+        <img id= "dieImage1" src="">
+        <p id = "diceRollCount1"></p>
+        <br>
+
+        <img id= "dieImage2" src="">
+        <p id = "diceRollCount2"></p>
+        <br>
+
+        <img id= "dieImage3" src="">
+        <p id = "diceRollCount3"></p>
+        <br>
+
+        <img id= "dieImage4" src="">
+        <p id = "diceRollCount4"></p>
+        <br>
+
+        <img id= "dieImage5" src="">
+        <p id = "diceRollCount5"></p>
+        <br>
+
+        <p id = "diceTotalRollCount"></p>
+
+    </form>
+    <script>
+        //create function rollTheDie
+        function rollTheDie()
+        {
+            
+            //receive input
+            var iData;
+            iData = document.getElementById("myInput").value;
+            iData = parseInt(iData);
+            //error or run
+            if (iData > 1 && iData < 7)
+            {
+                //set var and let
+                let iRollTotal = 0;
+                let iRollNum = 0;
+                let aCount = [];
+                let iCnt;
+                let iRollCnt = 0;
+
+                //rotate through die
+                for (let iCntDie = 0; iCntDie < 5; iCntDie++)
+                {
+                    //random die roll plus counter for number of rolls
+                    for (let iCnt = 0; iData != iRollNum; iCnt++)
+                    {
+                        iRollNum = (Math.floor(Math.random() * 6)) +1;
+                        iRollCnt++;
+                    }
+
+                    //call die images
+                    document.getElementById(("dieImage") + (iCntDie + 1)).src = "images/dice" + iData + "Use.jpeg";
+                    
+                    //write innerHTML
+                    document.getElementById("diceRollCount"+ (iCntDie +1)).innerHTML = "Dice " + (iCntDie + 1)  + " Rolls = " + iRollCnt + "<br>";
+                    iRollTotal += iRollCnt;
+
+                    //reset variables for next iteration
+                    iRollCnt = 0;
+                    iRollNum = 0;
+
+                }
+                //document.getElementById("dieimage1").style.visibility = "visible";
+                document.getElementById("diceTotalRollCount").innerHTML = "Total # of rolls: " + iRollTotal;
+
+            }
+            // call reset if error function else
+            else
+            {
+                resetForm();
+            }
+        }
+        //reset if error function add focus
+        function resetForm()
+        {
+            alert("Error: This isn't DnD. Input value must be a number between 1-6");
+            document.getElementById("myInput").focus();
+        }
+ 
+    </script>
+<!-- Contact-->
+<section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">  
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Email</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50"><a href="#!">brightonlucas1@gmail.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Phone</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">+1 (936) 230-7777</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Address</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">356 E 400 N<br>Provo, UT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://www.linkedin.com/in/brightonlucas/"><i class="fab fa-linkedin"></i></a>
+            <a class="mx-2" href="https://www.instagram.com/brighton_early/"><i class="fab fa-instagram"></i></a>
+            <a class="mx-2" href="https://github.com/bluctmdals"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Brighton Lucas 2023</div></footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../../js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
